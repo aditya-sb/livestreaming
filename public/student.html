@@ -1,0 +1,34 @@
+<!-- public/student.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Student | Live Session</title>
+  <link rel="stylesheet" href="/styles.css"/>
+</head>
+<body class="page page-student">
+  <div class="layout">
+    <header class="page-header">
+      <h1>Live Session Viewer</h1>
+      <p>Stay tuned — the stream starts as soon as the presenter comes online.</p>
+    </header>
+
+    <main class="card video-card">
+      <div class="video-wrapper">
+        <video id="remoteVideo" autoplay playsinline controls></video>
+        <div id="loadingIndicator" class="loading-indicator">
+          <span class="spinner"></span>
+        </div>
+      </div>
+      <div class="status-block">
+        <p id="statusText" class="status status-idle">Connecting…</p>
+        <p id="infoText" class="subtitle">We’ll connect you automatically once the presenter is ready.</p>
+      </div>
+    </main>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/student.js"></script>
+</body>
+</html>

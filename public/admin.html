@@ -1,0 +1,58 @@
+<!-- public/admin.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Admin | Live Session Studio</title>
+  <link rel="stylesheet" href="/styles.css"/>
+</head>
+<body class="page page-admin">
+  <div class="layout">
+    <header class="page-header">
+      <h1>Live Session Studio</h1>
+      <p>Kick off your class, share the invite link, and start streaming instantly.</p>
+    </header>
+    <main class="grid grid-2">
+      <section class="card">
+        <div class="card-header">
+          <h2>Create Session</h2>
+          <p id="sessionStatus" class="status status-idle">Ready when you are.</p>
+        </div>
+        <div class="btn-row">
+          <button id="startSessionBtn" class="btn btn-primary" type="button">Start Session</button>
+          <button id="stopSessionBtn" class="btn btn-danger hidden" type="button">Stop Streaming</button>
+        </div>
+        <div id="shareCard" class="share-card hidden">
+          <label class="label" for="sessionUrlInput">Invite link</label>
+          <div class="share-row">
+            <input id="sessionUrlInput" class="share-input" type="text" readonly/>
+            <button id="copySessionBtn" class="btn btn-secondary" type="button">Copy</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="card video-card">
+        <div class="card-header">
+          <h2>Your Preview</h2>
+          <p id="videoStatus" class="status status-idle">Camera inactive.</p>
+        </div>
+        <div class="video-wrapper">
+          <video id="localVideo" autoplay muted playsinline></video>
+        </div>
+      </section>
+
+      <section class="card full-span">
+        <div class="card-header">
+          <h2>Participants</h2>
+          <p class="card-subtitle">Students will appear here when they join.</p>
+        </div>
+        <ul id="participantList" class="participant-list"></ul>
+      </section>
+    </main>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/admin.js"></script>
+</body>
+</html>
